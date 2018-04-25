@@ -1,0 +1,16 @@
+1.- Realizar una simulación del juego de Piedra,Papel o Tijeras, se tendrá
+que tomar la respuesta del usuario desde un Prompt y se verá el resultado del ganador 
+mediante un alert.
+
+2.- Realizar un aplicador de estilos. Mediante un cuadro de texto, ingresar el CSS en él 
+y aplicarselos a la etiqueta con id que ustedes elijan.
+
+3.- Utilizar el DOM para agregar elementos a una lista de HTML, estos se recibiran desde un cuadro 
+de texto
+
+4.-Realizar un CUD (CREATE,UPDATE,DELETE) simulado, insertar elementos a una lista de HTML.
+Nota: La actualización y eliminación debe ser por id.
+
+5.-Realizar el juego del marcianito explicado en clas
+
+
