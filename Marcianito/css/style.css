@@ -1,0 +1,35 @@
+img{
+	width: 200px;
+	height: 200px;
+	background: #9358FE;
+	animation-name: rectangulo;
+	animation-duration: 5s;
+	position: relative;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rectangulo {
+  0%{
+		
+		left: 0px;	
+      top: 0px;
+
+}
+
+  25%{
+  	left: 900px;	
+      top: 0px;
+    }
+50%{
+		left: 500px;	
+      top: 500px;
+
+}
+  75%{left: 0px;
+      top: 300px;
+}
+  100%{
+		left: 0px;
+      top: 0px;
+}
+}

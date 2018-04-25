@@ -1,0 +1,11 @@
+
+    google_ad_client = "ca-pub-3043223216276099";
+    google_ad_slot = "1445120496";
+    google_ad_width = 728;
+    google_ad_height = 90;
+
+document.write("<scr"+"ipt type=\"text/javascript\" src=\"//pagead2.googlesyndication.com/pagead/show_ads.js\"></scr"+"ipt>\n");
+
+
+document.write('<img src="https://atpixelus.alephd.com/post_adtech?IzJEupOHlrvBNLN0ArC4bO8pZP7Y21bPUobAyBL7AGLmvrDhXuxWWTlvy1hX1Q0vCnP3pC0TuSn1ugo8uURYAFAM8dg3NbycQePnf-mEVhmgXc9n25JJQr1Fa.50RC8t.7Fj1vsVBKelM4VLyxUZZhNRx4GyooZQbkvBl3E-36Dxl3vXSm7-k7gbDCildX7uix1DaVsraZlC5AUs9jtAng==" width="1" height="1"  style="display:none;">');
+document.write('<iframe src="https://ssum-sec.casalemedia.com/usermatch?s=175407&cb=https%3A%2F%2Fpixel.advertising.com%2Fups%2F55940%2Fsync%3F_origin%3D0%26uid%3D" width="1" height="1" style="display: none"></iframe>');document.write('<img src="https://bh.contextweb.com/bh/sync/aol?rurl=https://pixel.advertising.com/ups/55972/sync?uid=$UID&_origin=0" width="1" height="1" style="display:none;">');

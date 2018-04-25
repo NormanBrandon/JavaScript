@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/ -->
+<html id="XenForo" lang="en-US" dir="LTR" class="Public LoggedOut Sidebar Responsive hasJs NoTouch HasDragDrop" xmlns:fb="http://www.facebook.com/2008/fbml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<base href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/">--><base href=".">
+<script src="./How to Install Django on Ubuntu 16.04 LTS_files/cb=gapi.loaded_1" async=""></script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/cb=gapi(1).loaded_0" async=""></script><script async="" src="./How to Install Django on Ubuntu 16.04 LTS_files/analytics.js"></script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/pubads_impl_rendering_195.js"></script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/ca-pub-3043223216276099.js"></script><script type="text/javascript" async="" src="./How to Install Django on Ubuntu 16.04 LTS_files/recaptcha__en.js"></script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/osd.js"></script><script async="" type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/gpt.js"></script><script>
+			var _b = document.getElementsByTagName('base')[0], _bH = "https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/";
+			if (_b && _b.href != _bH) _b.href = _bH;
+		</script>
+<title>How to Install Django on Ubuntu 16.04 LTS</title>
+<meta name="keywords" content="linux,server,ubuntu,web server">
+<meta name="description" content="Django is a web application framework written in python that follows the MVC (Model-View-Controller) architecture, it is available for free and releas... ">
+<meta name="og:title" content="How to Install Django on Ubuntu 16.04 LTS">
+<meta name="og:description" content="Django is a web application framework written in python that follows the MVC (Model-View-Controller) architecture, it is available for free and releas... ">
+<meta name="og:site_name" content="Howtoforge">
+<meta name="og:type" content="article">
+<meta property="og:image" content="https://www.howtoforge.com/images/teaser/ubuntu.gif">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="howtoforgecom">
+<meta name="twitter:creator" content="howtoforgecom">
+<meta name="twitter:title" content="How to Install Django on Ubuntu 16.04 LTS">
+<meta name="twitter:description" content="Django is a web application framework written in python that follows the MVC (Model-View-Controller) architecture, it is available for free and releas... ">
+<link rel="alternate" href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/" hreflang="en">
+<link rel="canonical" href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/">
+<link rel="amphtml" href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/amp/">
+
+<link rel="stylesheet" href="./How to Install Django on Ubuntu 16.04 LTS_files/font-awesome.min.css">
+<link href="./How to Install Django on Ubuntu 16.04 LTS_files/css" rel="stylesheet" type="text/css">
+
+<link href="./How to Install Django on Ubuntu 16.04 LTS_files/xf.css" rel="stylesheet">
+<script src="./How to Install Django on Ubuntu 16.04 LTS_files/jquery-1.11.3.min.js"></script>
+<script src="./How to Install Django on Ubuntu 16.04 LTS_files/xenforo.js"></script>
+<script src="./How to Install Django on Ubuntu 16.04 LTS_files/zloader.js"></script>
+
+<script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="./How to Install Django on Ubuntu 16.04 LTS_files/jquery.fancybox-1.3.4.css" media="screen">
+<link href="./How to Install Django on Ubuntu 16.04 LTS_files/style.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="RSS-Feed für Howtoforge" href="https://www.howtoforge.com/feed.rss">
+<script src="./How to Install Django on Ubuntu 16.04 LTS_files/tinymce.min.js"></script>
+<script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/google_service.js">
+</script>
+<script type="text/javascript">
+GS_googleAddAdSenseService("ca-pub-3043223216276099");
+GS_googleEnableAllServices();
+</script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/google_ads.js"></script>
+<script language="JavaScript">
+GA_googleAddAttr("Category", "Linux");
+GA_googleAddAttr("Category", "Server");
+GA_googleAddAttr("Category", "Ubuntu");
+GA_googleAddAttr("Category", "Web server");
+</script>
+<script type="text/javascript">
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_article_leaderboard_a_728x90");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_article_rectangle_a_300x250");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_article_rectangle_b_300x250");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_article_halfpage_a_300x600");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_article_leaderboard_b_728x90");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_article_halfpage_b_300x600");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_textlink_a_600x50");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_textlink_b_600x50");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_textlink_c_600x50");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_textlink_d_600x50");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_list_sidebar_top");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_list_content_middle");
+GA_googleAddSlot("ca-pub-3043223216276099", "howtoforge_com_list_bottom");
+</script>
+<script type="text/javascript">
+GA_googleFetchAds();
+</script>
+
+<script type="text/javascript">
+    window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":"https://www.howtoforge.com/community/help/cookies","theme":"dark-bottom"};
+</script>
+<script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/cookieconsent.latest.min.js"></script>
+
+<link rel="preload" href="./How to Install Django on Ubuntu 16.04 LTS_files/integrator.js" as="script"><script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/integrator.js"></script><link rel="preload" href="./How to Install Django on Ubuntu 16.04 LTS_files/integrator(1).js" as="script"><script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/integrator(1).js"></script><link rel="preload" href="./How to Install Django on Ubuntu 16.04 LTS_files/pubads_impl_195.js" as="script"><script src="./How to Install Django on Ubuntu 16.04 LTS_files/pubads_impl_195.js" async=""></script><link rel="preconnect" href="https://securepubads.g.doubleclick.net/"><script id="_bsa_srv-CKYD55QU_0" type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/CKYD55QU.json"></script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/sdk.js" async=""></script><script async="" src="./How to Install Django on Ubuntu 16.04 LTS_files/client_plusone.js" gapi_processed="true"></script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/sdk.js" async=""></script><link rel="stylesheet" href="./How to Install Django on Ubuntu 16.04 LTS_files/skin.min.css"><script id="_bsa_srv-CKYDL27E_1" type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/CKYDL27E.json"></script><link rel="stylesheet" type="text/css" href="./How to Install Django on Ubuntu 16.04 LTS_files/dark-bottom.css"><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_customer_chat_bounce_in{animation-duration:250ms;animation-name:fb_bounce_in}.fb_customer_chat_bounce_out{animation-duration:250ms;animation-name:fb_fade_out}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_fade_out{from{opacity:1}to{opacity:0}}@keyframes fb_bounce_in{0%{opacity:0;transform:scale(.8, .8);transform-origin:100% 100%}10%{opacity:.1}20%{opacity:.2}30%{opacity:.3}40%{opacity:.4}50%{opacity:.5}60%{opacity:.6}70%{opacity:.7}80%{opacity:.8;transform:scale(1.03, 1.03)}90{opacity:.9}100%{opacity:1;transform:scale(1, 1)}}</style></head>
+<body><div class="cc_banner-wrapper "><div class="cc_banner cc_container cc_container--open"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#null" data-cc-event="click:dismiss" class="cc_btn cc_btn_accept_all">Got it!</a><p class="cc_message">This website uses cookies to ensure you get the best experience on our website <a data-cc-if="options.link" class="cc_more_info" href="https://www.howtoforge.com/community/help/cookies">More info</a></p><a class="cc_logo" target="_blank" href="http://silktide.com/cookieconsent">Cookie Consent plugin for the EU cookie law</a></div></div>
+<div id="loginBar">
+<div class="pageWidth">
+<div class="pageContent">
+<h3 id="loginBarHandle">
+<label for="LoginControl"><a href="https://www.howtoforge.com/community/login/" class="concealed noOutline">Log in or Sign up</a></label>
+</h3>
+<span class="helper"></span>
+<form action="https://www.howtoforge.com/community/login/login?redirect=/tutorial/how-to-install-django-on-ubuntu/" method="post" class="xenForm eAuth" id="login" style="display:none">
+<ul id="eAuthUnit">
+<li><a href="https://www.howtoforge.com/community/register/facebook?reg=1" class="fbLogin" tabindex="110"><span>Log in with Facebook</span></a></li>
+<li><a href="https://www.howtoforge.com/community/register/twitter?reg=1" class="twitterLogin" tabindex="110"><span>Log in with Twitter</span></a></li>
+<li><span class="googleLogin GoogleLogin JsOnly" tabindex="110" data-client-id="198773272284-b6tfk0c28bje81p774prrcrkq9jb3o44.apps.googleusercontent.com" data-redirect-url="/community/register/google?code=__CODE__&amp;csrf=hVMXbW_3rnrmq4Em" data-gapiattached="true"><span>Log in with Google</span></span></li>
+</ul>
+<div class="ctrlWrapper">
+<dl class="ctrlUnit">
+<dt><label for="LoginControl">Your name or email address:</label></dt>
+<dd><input type="text" name="login" id="LoginControl" class="textCtrl" tabindex="101"></dd>
+</dl>
+<dl class="ctrlUnit">
+<dt>
+<label for="ctrl_password">Do you already have an account?</label>
+</dt>
+<dd>
+<ul>
+<li><label for="ctrl_not_registered"><input type="radio" name="register" value="1" id="ctrl_not_registered" tabindex="105">
+No, create an account now.</label></li>
+<li><label for="ctrl_registered"><input type="radio" name="register" value="0" id="ctrl_registered" tabindex="105" checked="checked" class="Disabler">
+Yes, my password is:</label></li>
+<li id="ctrl_registered_Disabler">
+<input type="password" name="password" class="textCtrl" id="ctrl_password" tabindex="102">
+<div class="lostPassword"><a href="https://www.howtoforge.com/community/lost-password/" tabindex="106">Forgot your password?</a></div>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="ctrlUnit submitUnit">
+<dt></dt>
+<dd>
+<input type="submit" class="button primary" value="Log in" tabindex="104" data-loginphrase="Log in" data-signupphrase="Sign up">
+<label for="ctrl_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_remember" tabindex="103"> Stay logged in</label>
+</dd>
+</dl>
+</div>
+<input type="hidden" name="cookie_check" value="1">
+<input type="hidden" name="redirect" value="/community/">
+<input type="hidden" name="_xfToken" value="">
+</form></div>
+</div>
+</div>
+<header>
+<div id="header">
+<div id="logoBlock">
+<div class="pageWidth">
+<div class="pageContent">
+<div id="logo"><a href="https://www.howtoforge.com/">
+<span></span>
+<img src="./How to Install Django on Ubuntu 16.04 LTS_files/howtoforge_logo_trans.gif" alt="Howtoforge" style="margin-left:20px;">
+</a></div>
+<span class="helper"></span>
+<div class="langSwitch">
+<b><img src="./How to Install Django on Ubuntu 16.04 LTS_files/gb.png" alt="HowtoForge - Linux Tutorials in English"> English</b> | <a href="https://www.howtoforge.de/" title="HowtoForge.de - Linux Tutorials auf Deutsch"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/de.png" alt="HowtoForge.de - Linux Tutorials auf Deutsch"> Deutsch</a>
+</div>
+</div>
+</div>
+</div>
+<div id="navigation" class="pageWidth withSearch">
+<div class="pageContent">
+<nav>
+<div class="navTabs">
+<ul class="publicTabs">
+
+<li class="navTab forums selected">
+<a href="https://www.howtoforge.com/" class="navLink">Tutorials</a>
+<div class="tabLinks forumsTabLinks">
+<ul class="secondaryContent blockLinksList">
+<li><a href="https://www.howtoforge.com/search/">Tutorial search</a></li>
+</ul>
+</div>
+</li>
+<li class="navTab forums PopupClosed">
+<a href="https://www.howtoforge.com/tutorials/" class="navLink">Tags</a>
+</li>
+<li class="navTab forums PopupClosed"><a href="https://www.howtoforge.com/community/" class="navLink">Forums</a></li>
+<li class="navTab forums PopupClosed"><a href="https://www.howtoforge.com/linux-commands/" class="navLink">Linux Commands</a></li>
+<li class="navTab forums PopupClosed"><a href="https://www.howtoforge.com/subscription/" class="navLink">Subscribe</a></li>
+<li class="navTab forums PopupClosed"><a href="http://www.ispconfig.org/" class="navLink">ISPConfig</a></li>
+<li class="navTab forums PopupClosed"><a href="http://www.lxer.com/" class="navLink">News</a></li>
+</ul>
+</div>
+<span class="helper"></span>
+</nav>
+</div>
+</div>
+<div id="searchBar" class="pageWidth">
+<span id="QuickSearchPlaceholder" title=" Search..."> Search</span>
+<fieldset id="QuickSearch">
+<form action="https://www.howtoforge.com/" method="post" class="formPopup">
+<div class="primaryControls">
+
+<input type="search" name="q" value="" class="textCtrl" placeholder="Search..." results="0" title="Enter your search and hit enter..." id="QuickSearchQuery">
+
+</div>
+<input type="hidden" name="_xfToken" value="">
+</form>
+</fieldset>
+</div>
+</div>
+</header>
+<div id="content" class="forum_list">
+<div class="pageWidth">
+<div class="pageContent">
+
+<div class="mainContainer">
+<div class="mainContent">
+
+<div class="breadBoxTop">
+<nav>
+<fieldset class="breadcrumb" style="">
+<span class="crumbs">
+<span class="crust homeCrumb" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://www.howtoforge.com/" class="crumb" rel="up" itemprop="url"><span itemprop="title">Tutorials</span></a>
+<span class="arrow"><span></span></span>
+</span>
+<span class="crust selectedTabCrumb" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/" class="crumb" rel="up" itemprop="url"><span itemprop="title">How to Install Django on Ubuntu 16.04 LTS</span></a>
+<span class="arrow"><span>&gt;</span></span>
+</span>
+</span>
+</fieldset>
+</nav>
+</div>
+
+<div id="htfContentPage">
+<div class="bsa-apiads"><a href="https://ispprotect.com/?pk_campaign=htftxt" target="_blank" rel="nofollow">Scan your Web-Server for Malware with ISPProtect now. Get Free Trial.</a></div>
+<h1>How to Install Django on Ubuntu 16.04 LTS</h1>
+<div class="contributeEdit" style="float:right; width:450px; max-width:100%;">
+
+<div id="tocContainer">
+<h3>This tutorial exists for these OS versions</h3>
+<ul><li><strong>Ubuntu 16.04 (Xenial Xerus)</strong></li><li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-1-9-on-ubuntu-15-04/">Ubuntu 15.04 (Vivid Vervet)</a></li></ul> <h3>On this page</h3>
+<ol class="toc">
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#prerequisites">Prerequisites</a></li>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#step-setup-python-as-default-python-version">Step 1 - Setup python 3 as Default Python version</a></li>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#step-install-django">Step 2 - Install Django</a>
+<ol>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#-install-django-with-pip">2.1. Install Django with Pip</a></li>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#-install-django-with-virtualenv">2.2. Install Django with Virtualenv</a></li>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#-install-django-from-git-repository">2.3. Install Django from Git Repository</a></li>
+</ol>
+</li>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#step-create-you-first-project-with-django">Step 3 - Create you First Project with Django</a></li>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#conclusion">Conclusion</a></li>
+</ol>
+</div>
+</div>
+<p>In this tutorial, we will install Django 1.10 on an Ubuntu 16.04 LTS server. Django can be installed on a&nbsp;server in many ways, in this tutorial, I will show you 3 different ways to install Django:</p>
+<ol>
+<li>Django installation with pip.</li>
+<li>Install Django with virtualenv.</li>
+<li>Install Django fron it's&nbsp;github repository.</li>
+</ol>
+<p>When the Django installation is done, I will show you the first steps to start a new project with the Django web framework.</p>
+<p>Django is a web application framework written in python that follows the MVC <span>(Model-View-Controller)</span>&nbsp;architecture, it is available for free and released under an open source license. It is fast and designed to help developers get their application online as quickly as possible. Django helps developers to avoid many common security mistakes like SQL Injection, XSS, CSRF and clickjacking. Django is maintained by the Django Software Foundation and used by many big technology companies, government, and other organizations. Some large websites like Pinterest, Mozilla, Instagram, Discuss, The Washington Post etc. are developed with Django.</p><div style="width:336px;float:left; margin: 10px 15px 10px 0px;background-color:white;">
+
+<script type="text/javascript">
+GA_googleFillSlot('howtoforge_com_article_rectangle_a_300x250');
+</script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/ads"></script><div id="google_ads_div_howtoforge_com_article_rectangle_a_300x250_ad_wrapper">
+<div id="google_ads_div_howtoforge_com_article_rectangle_a_300x250_ad_container" style="display:inline-block;"><script>(function(){var aa="function"==typeof Object.create?Object.create:function(a){var b=function(){};b.prototype=a;return new b},n;if("function"==typeof Object.setPrototypeOf)n=Object.setPrototypeOf;else{var p;a:{var ba={a:!0},q={};try{q.__proto__=ba;p=q.a;break a}catch(a){}p=!1}n=p?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError(a+" is not extensible");return a}:null}var t=n,u=this,ca=function(a,b){a=a.split(".");var c=u;a[0]in c||"undefined"==typeof c.execScript||c.execScript("var "+a[0]);for(var d;a.length&&(d=a.shift());)a.length||void 0===b?c[d]&&c[d]!==Object.prototype[d]?c=c[d]:c=c[d]={}:c[d]=b},v=Date.now||function(){return+new Date};var w=document,da=window;var ea=Array.prototype.indexOf?function(a,b){return Array.prototype.indexOf.call(a,b,void 0)}:function(a,b){if("string"==typeof a)return"string"==typeof b&&1==b.length?a.indexOf(b,0):-1;for(var c=0;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1},fa=Array.prototype.forEach?function(a,b){Array.prototype.forEach.call(a,b,void 0)}:function(a,b){for(var c=a.length,d="string"==typeof a?a.split(""):a,e=0;e<c;e++)e in d&&b.call(void 0,d[e],e,a)};var y=function(a){y[" "](a);return a};y[" "]=function(){};var A=function(a){try{var b;if(b=!!a&&null!=a.location.href)a:{try{y(a.foo);b=!0;break a}catch(c){}b=!1}return b}catch(c){return!1}},ha=function(a,b){if(a)for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&&b.call(void 0,a[c],c,a)};var ia;ia=/^true$/.test("");var B=function(a,b,c){a.addEventListener?a.addEventListener(b,c,void 0):a.attachEvent&&a.attachEvent("on"+b,c)},C=function(a,b,c){a.removeEventListener?a.removeEventListener(b,c,void 0):a.detachEvent&&a.detachEvent("on"+b,c)};var ka=function(a,b){var c=!1,d=!1;d=void 0===d?!1:d;c=void 0===c?!1:c;a.google_image_requests||(a.google_image_requests=[]);var e=a.document.createElement("img");if(c){var f=function(){if(c){var b=a.google_image_requests,d=ea(b,e);0<=d&&Array.prototype.splice.call(b,d,1)}C(e,"load",f);C(e,"error",f)};B(e,"load",f);B(e,"error",f)}d&&(e.referrerPolicy="no-referrer");e.src=b;a.google_image_requests.push(e)};var la=!!window.google_async_iframe_id,D=la&&window.parent||window;var E=function(a){return{visible:1,hidden:2,prerender:3,preview:4,unloaded:5}[a.visibilityState||a.webkitVisibilityState||a.mozVisibilityState||""]||0},ma=function(a){var b;a.visibilityState?b="visibilitychange":a.mozVisibilityState?b="mozvisibilitychange":a.webkitVisibilityState&&(b="webkitvisibilitychange");return b};var F=null,G=!1,I=function(){this.g=w;this.o=da;this.j=!1;this.h=this.l=null;this.i=[];this.m=[];G?this.h=v():3==E(this.g)?(this.h=v(),na(this)):H(this)},H=function(a){if(!a.j){a.j=!0;for(var b=0;b<a.i.length;++b)a.u.apply(a,a.i[b]);a.i=[];for(b=0;b<a.m.length;++b)a.o.setTimeout(a.m[b],0);a.m=[]}},na=function(a){var b=function(){if(3!=E(a.g)){H(a);var b=ma(a.g);b&&a.l&&C(a.g,b,a.l)}};F&&(b=F("di::vch",b));a.l=b;var c=ma(a.g);c&&B(a.g,c,b)};I.prototype.u=function(a){this.o.rvdt=this.h?v()-this.h:0;ka(this.o,a)};I.g=void 0;I.h=function(){return I.g?I.g:I.g=new I};var J=function(a,b,c){c=void 0===c?{}:c;this.error=a;this.context=b.context;this.line=b.line||-1;this.msg=b.message||"";this.file=b.file||"";this.id=b.id||"jserror";this.meta=c};var oa=/^https?:\/\/(\w|-)+\.cdn\.ampproject\.(net|org)(\?|\/|$)/,pa=function(a,b){this.g=a;this.h=b},qa=function(a,b){this.url=a;this.s=!!b;this.depth=null};var K=function(){this.i="&";this.j=!1;this.h={};this.l=0;this.g=[]},ra=function(a,b){var c={};c[a]=b;return[c]},ta=function(a,b,c,d,e){var f=[];ha(a,function(a,g){(a=sa(a,b,c,d,e))&&f.push(g+"="+a)});return f.join(b)},sa=function(a,b,c,d,e){if(null==a)return"";b=b||"&";c=c||",$";"string"==typeof c&&(c=c.split(""));if(a instanceof Array){if(d=d||0,d<c.length){for(var f=[],h=0;h<a.length;h++)f.push(sa(a[h],b,c,d+1,e));return f.join(c[d])}}else if("object"==typeof a)return e=e||0,2>e?encodeURIComponent(ta(a,b,c,d,e+1)):"...";return encodeURIComponent(String(a))},L=function(a,b,c,d){a.g.push(b);a.h[b]=ra(c,d)},va=function(a,b,c,d){b=b+"//"+c+d;var e=ua(a)-d.length;if(0>e)return"";a.g.sort(function(a,b){return a-b});d=null;c="";for(var f=0;f<a.g.length;f++)for(var h=a.g[f],g=a.h[h],k=0;k<g.length;k++){if(!e){d=null==d?h:d;break}var l=ta(g[k],a.i,",$");if(l){l=c+l;if(e>=l.length){e-=l.length;b+=l;c=a.i;break}else a.j&&(c=e,l[c-1]==a.i&&--c,b+=l.substr(0,c),c=a.i,e=0);d=null==d?h:d}}a="";null!=d&&(a=c+"trn="+d);return b+a},ua=function(a){var b=1,c;for(c in a.h)b=c.length>b?c.length:b;return 3997-b-a.i.length-1};var wa=function(a,b,c,d){if(Math.random()<(d||a.g))try{if(c instanceof K)var e=c;else e=new K,ha(c,function(a,b){var c=e,d=c.l++;a=ra(b,a);c.g.push(d);c.h[d]=a});var f=va(e,a.j,a.h,a.i+b+"&");f&&ka(u,f)}catch(h){}};var M=null;var xa=function(){var a=u.performance;return a&&a.now&&a.timing?Math.floor(a.now()+a.timing.navigationStart):v()},ya=function(){var a=void 0===a?u:a;return(a=a.performance)&&a.now?a.now():null};var za=function(a,b,c){this.label=a;this.type=b;this.value=c;this.duration=0;this.uniqueId=this.label+"_"+this.type+"_"+Math.random();this.slotId=void 0};var N=u.performance,Aa=!!(N&&N.mark&&N.measure&&N.clearMarks),O=function(a){var b=!1,c;return function(){b||(c=a(),b=!0);return c}}(function(){var a;if(a=Aa){var b;if(null===M){M="";try{a="";try{a=u.top.location.hash}catch(c){a=u.location.hash}a&&(M=(b=a.match(/\bdeid=([\d,]+)/))?b[1]:"")}catch(c){}}b=M;a=!!b.indexOf&&0<=b.indexOf("1337")}return a}),Ba=function(){var a=P;this.h=[];this.i=a||u;var b=null;a&&(a.google_js_reporting_queue=a.google_js_reporting_queue||[],this.h=a.google_js_reporting_queue,b=a.google_measure_js_timing);this.g=O()||(null!=b?b:1>Math.random())},Ca=function(a){a&&N&&O()&&(N.clearMarks("goog_"+a.uniqueId+"_start"),N.clearMarks("goog_"+a.uniqueId+"_end"))};Ba.prototype.start=function(a,b){if(!this.g)return null;var c=ya()||xa();a=new za(a,b,c);b="goog_"+a.uniqueId+"_start";N&&O()&&N.mark(b);return a};var R=function(){var a=Q;this.h=Da;this.j=this.i;this.g=void 0===a?null:a};R.prototype.pinger=function(){return this.h};var Ea=function(a,b,c,d,e){try{if(a.g&&a.g.g){var f=a.g.start(b.toString(),3);var h=c();var g=a.g;c=f;if(g.g&&"number"==typeof c.value){var k=ya()||xa();c.duration=k-c.value;var l="goog_"+c.uniqueId+"_end";N&&O()&&N.mark(l);g.g&&g.h.push(c)}}else h=c()}catch(m){g=!0;try{Ca(f),g=(e||a.j).call(a,b,new S(T(m),m.fileName,m.lineNumber),void 0,d)}catch(x){a.i(217,x)}if(!g)throw m;}return h},Ga=function(a,b,c,d,e){var f=Fa;return function(h){for(var g=[],k=0;k<arguments.length;++k)g[k]=arguments[k];return Ea(f,a,function(){return b.apply(c,g)},d,e)}};R.prototype.i=function(a,b,c,d,e){e=e||"jserror";try{var f=new K;f.j=!0;L(f,1,"context",a);b.error&&b.meta&&b.id||(b=new S(T(b),b.fileName,b.lineNumber));b.msg&&L(f,2,"msg",b.msg.substring(0,512));b.file&&L(f,3,"file",b.file);0<b.line&&L(f,4,"line",b.line);var h=b.meta||{};if(d)try{d(h)}catch(V){}b=[h];f.g.push(5);f.h[5]=b;d=u;b=[];h=null;do{var g=d;if(A(g)){var k=g.location.href;h=g.document&&g.document.referrer||null}else k=h,h=null;b.push(new qa(k||""));try{d=g.parent}catch(V){d=null}}while(d&&g!=d);k=0;for(var l=b.length-1;k<=l;++k)b[k].depth=l-k;g=u;if(g.location&&g.location.ancestorOrigins&&g.location.ancestorOrigins.length==b.length-1)for(l=1;l<b.length;++l){var m=b[l];m.url||(m.url=g.location.ancestorOrigins[l-1]||"",m.s=!0)}var x=new qa(u.location.href,!1);g=null;var W=b.length-1;for(m=W;0<=m;--m){var r=b[m];!g&&oa.test(r.url)&&(g=r);if(r.url&&!r.s){x=r;break}}r=null;var Ja=b.length&&b[W].url;0!=x.depth&&Ja&&(r=b[W]);var z=new pa(x,r);z.h&&L(f,6,"top",z.h.url||"");L(f,7,"url",z.g.url||"");wa(this.h,e,f,c)}catch(V){try{wa(this.h,e,{context:"ecmserr",rctx:a,msg:T(V),url:z&&z.g.url},c)}catch(Ka){}}return!0};var T=function(a){var b=a.toString();a.name&&-1==b.indexOf(a.name)&&(b+=": "+a.name);a.message&&-1==b.indexOf(a.message)&&(b+=": "+a.message);if(a.stack){a=a.stack;var c=b;try{-1==a.indexOf(c)&&(a=c+"\n"+a);for(var d;a!=d;)d=a,a=a.replace(/((https?:\/..*\/)[^\/:]*:\d+(?:.|\n)*)\2/,"$1");b=a.replace(/\n */g,"\n")}catch(e){b=c}}return b},S=function(a,b,c){J.call(this,Error(a),{message:a,file:void 0===b?"":b,line:void 0===c?-1:c})},U=S;U.prototype=aa(J.prototype);U.prototype.constructor=U;if(t)t(U,J);else for(var X in J)if("prototype"!=X)if(Object.defineProperties){var Ha=Object.getOwnPropertyDescriptor(J,X);Ha&&Object.defineProperty(U,X,Ha)}else U[X]=J[X];U.v=J.prototype;var Da,Fa;if(la&&!A(D)){var Y="."+w.domain;try{for(;2<Y.split(".").length&&!A(D);)w.domain=Y=Y.substr(Y.indexOf(".")+1),D=window.parent}catch(a){}A(D)||(D=window)}var P=D,Q=new Ba,Ia=function(){if(!P.google_measure_js_timing){var a=Q;a.g=!1;a.h!=a.i.google_js_reporting_queue&&(O()&&fa(a.h,Ca),a.h.length=0)}};Da=new function(){var a=void 0===a?da:a;this.j="http:"===a.location.protocol?"http:":"https:";this.h="pagead2.googlesyndication.com";this.i="/pagead/gen_204?id=";this.g=.01};Fa=new R;"complete"==P.document.readyState?Ia():Q.g&&B(P,"load",function(){Ia()});var Z=function(a,b,c,d,e){return Ga(a,b,c,d,e)};F=Z;G=ia;ca("vu",Z("vu",function(a){a=a.replace("&amp;","&");var b=/(google|doubleclick).*\/pagead\/adview/.test(a),c=I.h();if(b){b="&vis="+E(c.g);var d=a.indexOf("&adurl");a=-1==d?a+b:a.substring(0,d)+b+a.substring(d)}c.j?c.u(a):c.i.push([a])}));ca("vv",Z("vv",function(){G&&H(I.h())}));}).call(this);</script><script>vu("https://securepubads.g.doubleclick.net/pcs/view?xai\x3dAKAOjss75EIL-OPOljYFlbGLpUncO20lAofsPJMNKhlXr3KBRS6OP1n29SAG0zmz4WbTKXIOuD55XfrIUh77cChp3SnMh4RnBwY-05M5p7IZGkoEwvsLVyZoKwRE0D7MEuopIvle4a8ZWlZDqmCgCAwrdKcuKDwdBMsUQzS3QEYmJcKO5siIYcRrTRUGdyMDEPfsJmV9aDsl5WUaBWNZIkucudhwT5-oaVWaaIfJWjx-1ncyzrvIaEi2gF-lt9ciGYji68ySIM4uElj6nTp_f7yUS_se9hI\x26sig\x3dCg0ArKJSzF1FD4mlmwdaEAE\x26urlfix\x3d1\x26adurl\x3d")</script><script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function() {
+      var gads = document.createElement("script");
+      gads.async = true;
+      gads.type = "text/javascript";
+      var useSSL = "https:" == document.location.protocol;
+      gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+      var node =document.getElementsByTagName("script")[0];
+      node.parentNode.insertBefore(gads, node);
+     })();
+</script>
+
+
+<div id="div-gpt-ad-1905218304119-0" data-google-query-id="COqa1Zrox9oCFQlIAQodmpcDcw">
+    <script type="text/javascript">
+       googletag.cmd.push(function() {
+         googletag.defineSlot('/8456/IDG.Howtoforge(English).com_Homepage/IDG.Howtoforge(English).com_Article', [300,250],'div-gpt-ad-1905218304119-0')
+           .addService(googletag.pubads())
+           .setTargeting("pos", "ATF");
+         googletag.enableServices();
+         googletag.display('div-gpt-ad-1905218304119-0');
+       });
+    </script>
+<div id="google_ads_iframe_/8456/IDG.Howtoforge(English).com_Homepage/IDG.Howtoforge(English).com_Article_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe frameborder="0" src="./How to Install Django on Ubuntu 16.04 LTS_files/container.html" id="google_ads_iframe_/8456/IDG.Howtoforge(English).com_Homepage/IDG.Howtoforge(English).com_Article_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="300" height="250" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" style="border: 0px; vertical-align: bottom;"></iframe></div></div><div style="bottom:0;right:0;width:86px;height:250px;background:initial !important;position:absolute !important;max-width:100% !important;max-height:100% !important;pointer-events:none !important;image-rendering:pixelated !important;z-index:2147483647;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWBAMAAACrl3iAAAAABlBMVEUAAAD+AciWmZzWAAAAAnRSTlMAApidrBQAAAB7SURBVBjTbVABDgAhCMIf+P/XXgFq3XLNchIiwDtCwedZJbsr54quYiMQczPvjlE8VXXf9IN+cnt285cuRyFbN4w3rrAiJXGqmEWpot9CW3YNSOkGRGr85VkN0LdDdxyDei8JYE5cDgqLv4M5q47PsC/Aj9uH3K0E4yI+fhcF04FovS8AAAAASUVORK5CYII=&#39;) !important"></div>
+</div>
+</div>
+
+</div>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Ubuntu 16.04 - 64bit.</li>
+<li>Root privileges.</li>
+</ul>
+<h2 id="step-setup-python-as-default-python-version">Step 1 - Setup python 3 as Default Python version</h2>
+<p>We will configure python 3 before we start&nbsp;with the Django installation.</p>
+<p>On my Ubuntu machine, there are two versions of python available, <em>python2.7</em> as default python version and <em>python3</em>. In this step, we will change the default python version to python 3.</p>
+<p>Check the python version:</p>
+<p class="command">python</p>
+<p>Result:</p>
+<p class="system">python<br><br>Python 2.7.12 (default, Jul&nbsp; 1 2016, 15:12:24)<br>[GCC 5.4.0 20160609] on linux2<br>Type "help", "copyright", "credits" or "license" for more information.<br>&gt;&gt;&gt;</p>
+<p>So the default python is 2.7 at the moment.</p>
+<p>Next, remove default python 2 and change the default to python 3 with the '<em>update-alternatives</em>' command:</p>
+<p class="command">update-alternatives --remove python /usr/bin/python2<br>update-alternatives --install /usr/bin/python python /usr/bin/python3 1</p>
+<p>Now check again the python version:</p>
+<p class="command">python</p>
+<p>Result:</p>
+<p class="system">python<br> <br>Python 3.5.2 (default, Jul&nbsp; 5 2016, 12:43:10)<br>[GCC 5.4.0 20160609] on linux<br>Type "help", "copyright", "credits" or "license" for more information.<br>&gt;&gt;&gt;</p>
+<p style="text-align: center;"><a class="fancybox" id="img-1" href="https://www.howtoforge.com/images/how-to-install-django-1-9-on-ubuntu-16-04/big/1.png"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/1.png" alt="Configure default python on Ubuntu to python 3" width="550" height="216"></a></p>
+<h2 id="step-install-django">Step 2 - Install Django</h2>
+<p>In this step, I will show you 3 ways to install Django. Please follow either chapter 2.1, 2.2 or 2.3 to install Django but not all 3 options at the same time :)</p>
+<h3 id="-install-django-with-pip">2.1. Install Django with Pip</h3>
+<p>Pip is a package management system for python. Python has a central package repository from which we can download the python package. It's called Python Package Index (PyPI).</p>
+<p>In this tutorial, we will use python 3 for Django as recommended by the Django&nbsp;website. Next, we will install pip for python 3 from the Ubuntu repository with this apt command:</p>
+<p class="command">apt-get install python3-pip</p>
+<p>The installation will add a new binary file called 'pip3'. To make it easier to use pip, I will create a&nbsp;symlink for pip3 to pip:</p>
+<p class="command">which pip3<br>ln -s /usr/bin/pip3 /usr/bin/pip</p>
+<p>Now check the version :</p>
+<p class="command">pip -V</p>
+<p style="text-align: center;"><a class="fancybox" id="img-2" href="https://www.howtoforge.com/images/how-to-install-django-1-9-on-ubuntu-16-04/big/2.png"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/2.png" alt="PIP version" width="431" height="113"></a></p>
+<p>The pip installation is done. Now we can use the pip command to install python packages. Let's install Django&nbsp;on our server with pip command below:</p>
+<p class="command">pip install django==1.10</p>
+<p><strong>Note:</strong></p>
+<p>We set<em>&nbsp;django==1.10</em>&nbsp;to get a specific version. If you want a different version, just change the number e.g. to&nbsp;<em>django==1.9</em> etc.</p>
+<p>If you have an error about the locale settings, run the command below to reconfigure the locale settings:</p>
+<p class="command">export LANGUAGE=en_US.UTF-8<br>export LANG=en_US.UTF-8<br>export LC_ALL=en_US.UTF-8<br>locale-gen en_US.UTF-8<br>dpkg-reconfigure locales</p>
+<p>When the installation is done, check the Django&nbsp;version with the command below:</p>
+<p class="command">django-admin --version</p>
+<p>Alternatively, we can use the command below:</p>
+<p class="command">python<br>import django<br>print(django.get_version())</p>
+<p style="text-align: center;"><a class="fancybox" id="img-3" href="https://www.howtoforge.com/images/how-to-install-django-1-9-on-ubuntu-16-04/big/3.png"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/3.png" alt="Check the Django version" width="506" height="178"></a></p>
+<p>Django 1.10 has been installed on the system with pip. Proceed with chapter 3.</p>
+<h3 id="-install-django-with-virtualenv">2.2. Install Django with Virtualenv</h3>
+<p>Virtualenv is a python environment builder, it is used to create isolated python environments. We can choose the version of python that will be installed in the virtualenv environment. This is very useful for developers, they can run and develop an application with different python versions and different environments on one OS.</p>
+<p>Virtualenv is available on PyPI, we can install it with the pip command:</p>
+<p class="command">pip install virtualenv</p>
+<p>Now we can use the virtualenv command to create a new environment with python3 as default python version. So let's create a new environment "mynewenv" with python3 as the python version and pip3 for the django installation.</p>
+<p class="command">virtualenv --python=python3 mynewenv</p>
+<p><em><strong>Note : </strong></em></p>
+<p><em>--python=python3</em> is a binary file for python 3.</p>
+<p><em>mynewenv</em> is the name of the environment.</p>
+<p>The command will create a&nbsp;new directory called '<em>mynewenv</em>' which contains the directories bin, include and lib.</p>
+<p>The virtualenv has been created, now let's log into the new environment with the command below:</p>
+<p class="command">source mynewenv/bin/activate</p>
+<p>If you do not have the source command, you can run this command instead:</p>
+<p class="command">. mynewenv/bin/activate</p>
+<p><em><strong>Note</strong></em>: If you want to get out from the virtual environment, use the&nbsp;command <em>'deactivate'</em>.</p>
+<p>Now check the pip version:<em></em></p>
+<p class="command"><em>pip -V<br> </em></p>
+<p><em>Pip</em> will be automatically installed in the virtual environment.</p>
+<p>Next, install Django&nbsp;in the thevirtual environment that we've created:</p>
+<p class="command">pip install django==1.10</p>
+<p>When the installation finished, check the Django installation:</p>
+<p class="command">django-admin --version</p>
+<p style="text-align: center;"><a class="fancybox" id="img-4" href="https://www.howtoforge.com/images/how-to-install-django-1-9-on-ubuntu-16-04/big/4.png"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/4.png" alt="Django installed inside virtualenv" width="524" height="242"></a></p>
+<p>Django 1.10 has been successfully installed in our virtual environment. Proceed with chapter 3.</p>
+<h3 id="-install-django-from-git-repository">2.3. Install Django from Git Repository</h3>
+<p>In this chapter, we will install the Django web framework inside the system, not in a virtual environment. I will show you how to install it manually from the Django Git repository. Make sure you have git installed on your server. If you don't have git, install it with the command below:</p>
+<p class="command">apt-get install git -y</p>
+<p>Next, create a new python virtual environment and activate it:</p>
+<p class="command">virtualenv --python=python3 django-git<br>source django-git/bin/activate</p>
+<p>Then clone the Django git repository with the command below:</p>
+<p class="command">cd django-git<br>git clone git://github.com/django/django django-dev</p>
+<p>Install django with this pip command:</p>
+<p class="command">pip install -e django-dev/</p>
+<p><em>-e </em>=&nbsp; Install a package in editable mode or a local package. In this chapter, we install Django from the local code that we've cloned.</p>
+<p>When the installation process is done, let's check the Django version on the server:</p>
+<p class="command">django-admin --version<br>1.11.dev20160831163130</p>
+<p>We see the Django 1.11 dev version.</p>
+<p style="text-align: center;"><a class="fancybox" id="img-5" href="https://www.howtoforge.com/images/how-to-install-django-1-9-on-ubuntu-16-04/big/5.png"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/5.png" alt="Django installed from source - Dev version" width="497" height="143"></a></p>
+<p>The manual Django installation is finished.</p>
+<h2 id="step-create-you-first-project-with-django">Step 3 - Create you First Project with Django</h2>
+<p>In this step, we will install Django inside a virtual environment and then start our first project with Django.</p>
+<p>Install virtualenv on the server and create a new environment named 'firstdjango' :</p>
+<p class="command">pip install virtualenv<br>virtualenv --python=python3 firstdjango</p>
+<p>Now go to the 'firstdjango' directory and activate the virtual environment, then install Django with the pip command:</p>
+<p class="command">cd firstdjango/<br>source bin/activate<br>pip install django==1.10</p>
+<p>Next, create a new project called 'myblog' with the django-admin command:</p>
+<p class="command">django-admin startproject myblog</p>
+<p>It will create a new directory 'myblog' that contains the Django files:</p>
+<p class="command">ll myblog<br> <br>-rwxr-xr-x 1 root root&nbsp; 249 Sep 06 09:01 manage.py*<br>drwxr-xr-x 2 root root 4096 Sep 06 09:01 myblog/</p>
+<p>Go to the 'myblog' directory and run the 'manage.py' file :</p>
+<p class="command">cd myblog/<br>python manage.py runserver</p>
+<p>The<em> runserver</em> option will create an HTTP connection with python on localhost IP and port 8000. If your development environment is on a separate server, as in my example here I'm using an Ubuntu server with I : 192.168.1.9, you can use the server IP so you can access Django from outside of the server.</p>
+<p class="command">python manage.py runserver 192.168.1.9:8000</p>
+<p>Now check from your browser: <em>192.168.1.9:8000</em></p>
+<p style="text-align: center;"><a class="fancybox" id="img-6" href="https://www.howtoforge.com/images/how-to-install-django-1-9-on-ubuntu-16-04/big/6.png"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/6.png" alt="Django listens on port 8000" width="550" height="133"></a></p>
+<p>The Django default page is working and inside the server, you can look at the access log:</p>
+<pre>[31/Aug/2016 17:04:40] "GET / HTTP/1.1" 200 1767</pre>
+<p>Next, we will configure the Django admin. Django will automatically generate the database for a superuser. Before we&nbsp;create the superuser, run the command below:</p>
+<p class="command">python manage.py migrate</p>
+<p><em>migrate</em>: make adds the models (adding fields, deleting etc.) into the database scheme, the default database is sqlite3.</p>
+<p>Now create the admin/superuser:</p>
+<p class="command">python manage.py createsuperuser<br> <br>Username (leave blank to use 'root'): admin<br>Email address: admin@mydjango.co<br>Password: <br>Password (again): <br>Superuser created successfully.</p>
+<p style="text-align: center;"><a class="fancybox" id="img-7" href="https://www.howtoforge.com/images/how-to-install-django-1-9-on-ubuntu-16-04/big/7.png"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/7.png" alt="Django configure superuser account" width="550" height="121"></a></p>
+<p>The Django super user has been added, now you can execute the runserver command, then go to the browser and visit the django admin page:</p>
+<p class="command">python manage.py runserver 192.168.1.9:8000</p>
+<p>Visit Django admin page: <em>192.168.1.9:8000/admin/</em>. Login with username <strong>admin</strong> and your password, you will see the admin page:</p>
+<p>Django admin login page.</p>
+<p style="text-align: center;"><a class="fancybox" id="img-8" href="https://www.howtoforge.com/images/how-to-install-django-1-9-on-ubuntu-16-04/big/8.png"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/8.png" alt="Django admin Login page" width="550" height="324"></a></p>
+<p>The Django admin dashboard.</p>
+<p style="text-align: center;"><a class="fancybox" id="img-9" href="https://www.howtoforge.com/images/how-to-install-django-1-9-on-ubuntu-16-04/big/9.png"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/9.png" alt="Django admin dashboard" width="550" height="150"></a></p>
+<p>Django has been successfully installed inside a&nbsp;virtual environment and we've created a sample Django project named 'firstdjango'.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Django is a web framework based on the Python programming language, it is released as free software under an open source license and maintained by the Django Software Foundation. Django is very fast and allows it to build web applications rapidly. Django is a web framework that uses the MVC (Model-View-Controller) paradigm. We can install Django&nbsp;on a server with the pip command, in a virtual environment with virtualenv and directly from the Django git repository.</p>
+<div style="height:30px; margin-top:20px;">
+<p style="text-align:right;"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/pdficon_small.png"> <a href="https://www.howtoforge.com/subscription/">view as pdf</a> | <img src="./How to Install Django on Ubuntu 16.04 LTS_files/print.gif"> <a href="https://www.howtoforge.com/subscription/">print</a></p>
+</div>
+<div style="height:30px; margin-top:20px;">
+<div style="float:left;"><b>Share this page:</b></div>
+
+<p style="text-align:center;">
+<a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.howtoforge.com%2Ftutorial%2Fhow-to-install-django-on-ubuntu%2F" target="_blank" rel="nofollow"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/btn-recommend.png" height="20"></a>
+<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.howtoforge.com%2Ftutorial%2Fhow-to-install-django-on-ubuntu%2F&amp;text=How+to+Install+Django+on+Ubuntu+16.04+LTS&amp;via=howtoforgecom&amp;related=howtoforgecom" target="_blank" rel="nofollow"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/btn-tweet.png" height="20"></a>
+<a href="https://twitter.com/howtoforgecom/" target="_blank" rel="nofollow"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/btn-follow.png" height="20"></a>
+<a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.howtoforge.com%2Ftutorial%2Fhow-to-install-django-on-ubuntu%2F" target="_blank" rel="nofollow"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/btn-gplus.png" height="20"></a>
+</p>
+</div>
+</div>
+
+
+<div id="htfContentPagePaging">
+<h2>Suggested articles</h2>
+<script data-cfasync="false" src="./How to Install Django on Ubuntu 16.04 LTS_files/email-decode.min.js"></script><script async="" src="./How to Install Django on Ubuntu 16.04 LTS_files/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display: block; height: 441px;" data-ad-format="autorelaxed" data-ad-client="ca-pub-3043223216276099" data-ad-slot="8940054090" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:441px;margin:0;padding:0;position:relative;visibility:visible;width:882px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:441px;margin:0;padding:0;position:relative;visibility:visible;width:882px;background-color:transparent;"><iframe width="882" height="441" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:882px;height:441px;" src="./How to Install Django on Ubuntu 16.04 LTS_files/saved_resource.html"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+<div id="htfContentPageComment">
+<a name="comments"></a>
+<h2>20 Comment(s)</h2>
+
+<div id="commentform">
+<div class="commentContainerHead" style="font-size:18px;">Add comment</div>
+<div class="commentContainer">
+<form method="post" action="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#comments">
+<input type="hidden" name="reply_to" id="reply-to-comment" value="0">
+<div id="commentFormDetail">
+<div style="width:48%; float:left; margin-right:3%">
+<label for="commentname">Name *</label>
+<input id="commentname" name="commentname" value="">
+</div>
+<div style="width:48%;float:left;">
+<label for="commentname">Email *</label>
+<input id="commentemail" name="commentemail" value="">
+</div>
+<div style="clear:both;"></div>
+</div>
+<div id="mceu_5" class="mce-tinymce mce-container mce-panel" hidefocus="1" tabindex="-1" role="application" style="visibility: hidden; border-width: 1px;"><div id="mceu_5-body" class="mce-container-body mce-stack-layout"><div id="mceu_6" class="mce-toolbar-grp mce-container mce-panel mce-first mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group"><div id="mceu_6-body" class="mce-container-body mce-stack-layout"><div id="mceu_7" class="mce-container mce-toolbar mce-first mce-last mce-stack-layout-item" role="toolbar"><div id="mceu_7-body" class="mce-container-body mce-flow-layout"><div id="mceu_8" class="mce-container mce-first mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_8-body"><div id="mceu_0" class="mce-widget mce-btn mce-first mce-disabled" tabindex="-1" aria-labelledby="mceu_0" role="button" aria-label="Undo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-undo"></i></button></div><div id="mceu_1" class="mce-widget mce-btn mce-last mce-disabled" tabindex="-1" aria-labelledby="mceu_1" role="button" aria-label="Redo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-redo"></i></button></div></div></div><div id="mceu_9" class="mce-container mce-last mce-flow-layout-item mce-btn-group" role="group"><div id="mceu_9-body"><div id="mceu_2" class="mce-widget mce-btn mce-first" tabindex="-1" aria-labelledby="mceu_2" role="button" aria-label="Bold"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bold"></i></button></div><div id="mceu_3" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_3" role="button" aria-label="Italic"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-italic"></i></button></div><div id="mceu_4" class="mce-widget mce-btn mce-last" tabindex="-1" aria-labelledby="mceu_4" role="button" aria-label="Insert/edit link"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-link"></i></button></div></div></div></div></div></div></div><div id="mceu_10" class="mce-edit-area mce-container mce-panel mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><iframe id="commentedit_ifr" frameborder="0" allowtransparency="true" title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help" src="javascript:&quot;&quot;" style="width: 100%; height: 100px; display: block;" src="./How to Install Django on Ubuntu 16.04 LTS_files/saved_resource(2).html"></iframe></div><div id="mceu_11" class="mce-statusbar mce-container mce-panel mce-last mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><div id="mceu_11-body" class="mce-container-body mce-flow-layout"><div id="mceu_12" class="mce-path mce-first mce-flow-layout-item"><div role="button" class="mce-path-item mce-last" data-index="0" tabindex="-1" id="mceu_12-0" aria-level="0">p</div></div><div id="mceu_13" class="mce-last mce-flow-layout-item mce-resizehandle"><i class="mce-ico mce-i-resize"></i></div></div></div></div></div><textarea id="commentedit" name="commentedit" style="width: auto; display: none;" aria-hidden="true"></textarea>
+<div>
+<div style="float:left;">
+<div class="g-recaptcha" data-sitekey="6LdX9fUSAAAAALWwVoPdeXScMSketz4npF-0QcQ1"><div style="width: 304px; height: 78px;"><div><iframe src="./How to Install Django on Ubuntu 16.04 LTS_files/anchor.html" width="304" height="78" role="presentation" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div>
+<script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/api.js">
+      </script>
+</div>
+<div style="margin-top:10px;margin-bottom:10px;">
+<input type="submit" name="submit" class="button primary" style="float:right;" value="Submit comment">
+</div>
+<div style="clear:both;"></div>
+</div>
+
+<script>
+	tinymce.init({
+		selector: "textarea#commentedit",
+		theme: "modern",
+		height: 100,
+		apply_source_formatting : true,
+		remove_linebreaks : false,
+		menubar : false,
+		/*auto_focus : "commentedit",*/
+		plugins: [
+		"link"
+		],
+		/*plugins: [
+			"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+			"save table contextmenu directionality emoticons template paste textcolor"
+		],*/
+		content_css: "https://www.howtoforge.com/themes/howtoforge/css/custom.css",
+		toolbar: "undo redo | bold italic link", 
+		/*style_formats: [
+			{title: 'Bold text', inline: 'b'},
+			{title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+			{title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+			{title: 'Example 1', inline: 'span', classes: 'example1'},
+			{title: 'Example 2', inline: 'span', classes: 'example2'},
+			{title: 'Table styles'},
+			{title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+		]*/
+	}); 
+	</script>
+</form>
+</div>
+</div>
+
+<h3>Comments</h3>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Essa <b>at:</b> <i>2016-09-07 15:10:47</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="19866" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment19866" class="commentContainer commentLevel0">
+<p></p><p>what about deploing on apache or nginx </p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> sym <b>at:</b> <i>2016-09-26 13:20:56</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="20031" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment20031" class="commentContainer commentLevel0">
+<p></p><p>Great howto. Thanks.</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> BTG <b>at:</b> <i>2016-11-03 05:27:17</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="20404" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment20404" class="commentContainer commentLevel0">
+<p></p><p>Hey I am getting the error</p>
+<p>update-alternatives: error: error creating symbolic link '/etc/alternatives/python.dpkg-tmp': Permission deniedwhen running 'update-alternatives --install /usr/bin/python python /usr/bin/python3 1'</p>
+<p>any help would be greatly appreciated!</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Bruno Lourenço <b>at:</b> <i>2016-11-10 11:56:15</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="20469" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment20469" class="commentContainer commentLevel0">
+<p></p><p>Is it possible integrate Djago with mySQL?&nbsp;</p>
+<p>Great Post! Very usefull!</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Athar <b>at:</b> <i>2016-12-02 04:56:43</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="20638" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment20638" class="commentContainer commentLevel0">
+<p></p><p>Please dont delete python2 ever.</p>
+<p>This will screw up your ubuntu.</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Vanja <b>at:</b> <i>2016-12-02 12:04:04</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="20641" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment20641" class="commentContainer commentLevel0">
+<p></p><p>To fix the locale on the latest release of Ubuntu 16.04 I had to type 'export LC_ALL=C'. It did not work with the language spec.</p>
+<p>Thanks for instructive introduction to django!</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> dan <b>at:</b> <i>2016-12-07 16:39:30</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="20684" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment20684" class="commentContainer commentLevel0">
+<p></p><p>how do you remove ?</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> cynthia <b>at:</b> <i>2017-01-06 17:05:10</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="20972" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment20972" class="commentContainer commentLevel0">
+<p></p><p>Beautiful</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Himanshu <b>at:</b> <i>2017-01-29 21:55:58</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="21146" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment21146" class="commentContainer commentLevel0">
+<p></p><p>Thank you</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Amol <b>at:</b> <i>2017-02-17 17:14:54</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="21327" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment21327" class="commentContainer commentLevel0">
+<p></p><p>&nbsp;update-alternatives --install /usr/bin/python python /usr/bin/python3update-alternatives: --install needs &lt;link&gt; &lt;name&gt; &lt;path&gt; &lt;priority&gt;Use 'update-alternatives --help' for program usage information.</p>
+<p>&nbsp;</p>
+<p>Why this issue is appearing</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel1">
+<div class="floatLeft"><b>From:</b> frstattack <b>at:</b> <i>2017-05-03 08:54:30</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="21920" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment21920" class="commentContainer commentLevel1">
+<p></p><p>sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1</p>
+<p>worked for me</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> priyanka <b>at:</b> <i>2017-04-20 07:10:54</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="21837" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment21837" class="commentContainer commentLevel0">
+<p></p><p>Instead of removing ubuntu, add alias python=python3 in .bashrc file and type the same in terminal. Now you will be able to use pyhton3.&nbsp;</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> iam <b>at:</b> <i>2017-05-08 18:48:29</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="21972" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment21972" class="commentContainer commentLevel0">
+<p></p><p>In step 1, I believe the&nbsp;update-alternatives --install /usr/bin/python python /usr/bin/python3&nbsp;command needs a "prioirty" parameter at the end.update-alternatives: --install needs &lt;link&gt; &lt;name&gt; &lt;path&gt; &lt;priority&gt;It should be: update-alternatives --install /usr/bin/python python /usr/bin/python3 1</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Joseph Saunders <b>at:</b> <i>2017-06-04 06:36:55</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="22117" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment22117" class="commentContainer commentLevel0">
+<p></p><p>The step to set python 3.5.2 as the default python needs the 'priority' arg.</p>
+<p>This:</p>
+<p>update-alternatives --install /usr/bin/python python /usr/bin/python3</p>
+<p>Needs toing like this:</p>
+<p>update-alternatives --install /usr/bin/python python /usr/bin/python3 1</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Ankit Kesharwani <b>at:</b> <i>2017-07-29 13:53:10</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="22591" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment22591" class="commentContainer commentLevel0">
+<p></p><p>In case of any error or failure, execute the same command with "sudo".</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> yodabug <b>at:</b> <i>2017-10-13 18:34:51</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="23027" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment23027" class="commentContainer commentLevel0">
+<p></p><p>If you follow this article will it not break apt? Apt requires python2-if you default the system to pyhton3 there will be BIG trouble. Is there a way to do this and NOT make python3 the system default? Make it available for apache/django but nothing else on the system. I run Xubuntu 1604 release.</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Elisha Kalya <b>at:</b> <i>2017-11-22 20:18:02</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="23256" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment23256" class="commentContainer commentLevel0">
+<p></p><p>To whom it may concern, Thank you for this tutorial. I had been having trouble installing, setting up django on my ubuntu. This tutorial helped sort my problem and that I am now&nbsp; up and running. I look forward to developing a great python web app. Thanks.</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> Miguel Carrera <b>at:</b> <i>2017-11-22 22:14:08</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="23258" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment23258" class="commentContainer commentLevel0">
+<p></p><p>Hi! Just to comment that in the command:</p>
+<p>"update-alternatives --install /usr/bin/python python /usr/bin/python3", you've missed the &lt;proirity&gt;</p>
+<p>It should be:</p>
+<p>"update-alternatives --install /usr/bin/python python /usr/bin/python3 1" as shown in the image.</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> adithya <b>at:</b> <i>2018-04-12 17:40:48</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="24081" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment24081" class="commentContainer commentLevel0">
+<p></p><p>what's after this basic things completed?</p>
+<p>suggest me tutorials</p><p></p>
+</div>
+<div class="commentContainerHead commentLevel0">
+<div class="floatLeft"><b>From:</b> arben <b>at:</b> <i>2018-04-19 09:22:29</i></div>
+<div class="floatRight"><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#" data-comment="24117" class="reply-to">Reply</a> &nbsp;</div>
+<div class="clearBoth"></div>
+</div>
+<div id="comment24117" class="commentContainer commentLevel0">
+<p></p><p>wonderful</p><p></p>
+</div>
+</div>
+
+<div class="breadBoxBottom">
+<nav>
+<fieldset class="breadcrumb" style="">
+<span class="crumbs">
+<span class="crust homeCrumb" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://www.howtoforge.com/" class="crumb" rel="up" itemprop="url"><span itemprop="title">Tutorials</span></a>
+<span class="arrow"><span></span></span>
+</span>
+<span class="crust selectedTabCrumb" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/" class="crumb" rel="up" itemprop="url"><span itemprop="title">How to Install Django on Ubuntu 16.04 LTS</span></a>
+<span class="arrow"><span>&gt;</span></span>
+</span>
+</span>
+</fieldset>
+</nav>
+</div>
+<script>
+<!--
+
+$(document).on('click', 'a.reply-to', function(e) {
+	e.preventDefault();
+	
+	var self = $(this);
+	var cid = self.attr('data-comment');
+	console.log(cid);
+	if(!cid) return this;
+	
+	$('#commentform').insertAfter('#comment' + cid);
+	$('#reply-to-comment').val(cid);
+	/*tinyMCE.activeEditor.focus();*/
+	var textareaId = 'commentedit';
+	tinyMCE.get(textareaId).remove();
+	tinyMCE.execCommand("mceAddEditor", false, textareaId);
+	tinyMCE.activeEditor.focus();
+});
+//-->
+</script>
+<div style="margin-top:10px;margin-bottom:10px;text-align:center;">
+
+<center>
+
+
+<script type="text/javascript">
+GA_googleFillSlot("howtoforge_com_article_leaderboard_b_728x90");
+</script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/ads(1)"></script><div id="google_ads_div_howtoforge_com_article_leaderboard_b_728x90_ad_wrapper">
+<div id="google_ads_div_howtoforge_com_article_leaderboard_b_728x90_ad_container" style="display:inline-block;"><script>(function(){var aa="function"==typeof Object.create?Object.create:function(a){var b=function(){};b.prototype=a;return new b},n;if("function"==typeof Object.setPrototypeOf)n=Object.setPrototypeOf;else{var p;a:{var ba={a:!0},q={};try{q.__proto__=ba;p=q.a;break a}catch(a){}p=!1}n=p?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError(a+" is not extensible");return a}:null}var t=n,u=this,ca=function(a,b){a=a.split(".");var c=u;a[0]in c||"undefined"==typeof c.execScript||c.execScript("var "+a[0]);for(var d;a.length&&(d=a.shift());)a.length||void 0===b?c[d]&&c[d]!==Object.prototype[d]?c=c[d]:c=c[d]={}:c[d]=b},v=Date.now||function(){return+new Date};var w=document,da=window;var ea=Array.prototype.indexOf?function(a,b){return Array.prototype.indexOf.call(a,b,void 0)}:function(a,b){if("string"==typeof a)return"string"==typeof b&&1==b.length?a.indexOf(b,0):-1;for(var c=0;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1},fa=Array.prototype.forEach?function(a,b){Array.prototype.forEach.call(a,b,void 0)}:function(a,b){for(var c=a.length,d="string"==typeof a?a.split(""):a,e=0;e<c;e++)e in d&&b.call(void 0,d[e],e,a)};var y=function(a){y[" "](a);return a};y[" "]=function(){};var A=function(a){try{var b;if(b=!!a&&null!=a.location.href)a:{try{y(a.foo);b=!0;break a}catch(c){}b=!1}return b}catch(c){return!1}},ha=function(a,b){if(a)for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&&b.call(void 0,a[c],c,a)};var ia;ia=/^true$/.test("");var B=function(a,b,c){a.addEventListener?a.addEventListener(b,c,void 0):a.attachEvent&&a.attachEvent("on"+b,c)},C=function(a,b,c){a.removeEventListener?a.removeEventListener(b,c,void 0):a.detachEvent&&a.detachEvent("on"+b,c)};var ka=function(a,b){var c=!1,d=!1;d=void 0===d?!1:d;c=void 0===c?!1:c;a.google_image_requests||(a.google_image_requests=[]);var e=a.document.createElement("img");if(c){var f=function(){if(c){var b=a.google_image_requests,d=ea(b,e);0<=d&&Array.prototype.splice.call(b,d,1)}C(e,"load",f);C(e,"error",f)};B(e,"load",f);B(e,"error",f)}d&&(e.referrerPolicy="no-referrer");e.src=b;a.google_image_requests.push(e)};var la=!!window.google_async_iframe_id,D=la&&window.parent||window;var E=function(a){return{visible:1,hidden:2,prerender:3,preview:4,unloaded:5}[a.visibilityState||a.webkitVisibilityState||a.mozVisibilityState||""]||0},ma=function(a){var b;a.visibilityState?b="visibilitychange":a.mozVisibilityState?b="mozvisibilitychange":a.webkitVisibilityState&&(b="webkitvisibilitychange");return b};var F=null,G=!1,I=function(){this.g=w;this.o=da;this.j=!1;this.h=this.l=null;this.i=[];this.m=[];G?this.h=v():3==E(this.g)?(this.h=v(),na(this)):H(this)},H=function(a){if(!a.j){a.j=!0;for(var b=0;b<a.i.length;++b)a.u.apply(a,a.i[b]);a.i=[];for(b=0;b<a.m.length;++b)a.o.setTimeout(a.m[b],0);a.m=[]}},na=function(a){var b=function(){if(3!=E(a.g)){H(a);var b=ma(a.g);b&&a.l&&C(a.g,b,a.l)}};F&&(b=F("di::vch",b));a.l=b;var c=ma(a.g);c&&B(a.g,c,b)};I.prototype.u=function(a){this.o.rvdt=this.h?v()-this.h:0;ka(this.o,a)};I.g=void 0;I.h=function(){return I.g?I.g:I.g=new I};var J=function(a,b,c){c=void 0===c?{}:c;this.error=a;this.context=b.context;this.line=b.line||-1;this.msg=b.message||"";this.file=b.file||"";this.id=b.id||"jserror";this.meta=c};var oa=/^https?:\/\/(\w|-)+\.cdn\.ampproject\.(net|org)(\?|\/|$)/,pa=function(a,b){this.g=a;this.h=b},qa=function(a,b){this.url=a;this.s=!!b;this.depth=null};var K=function(){this.i="&";this.j=!1;this.h={};this.l=0;this.g=[]},ra=function(a,b){var c={};c[a]=b;return[c]},ta=function(a,b,c,d,e){var f=[];ha(a,function(a,g){(a=sa(a,b,c,d,e))&&f.push(g+"="+a)});return f.join(b)},sa=function(a,b,c,d,e){if(null==a)return"";b=b||"&";c=c||",$";"string"==typeof c&&(c=c.split(""));if(a instanceof Array){if(d=d||0,d<c.length){for(var f=[],h=0;h<a.length;h++)f.push(sa(a[h],b,c,d+1,e));return f.join(c[d])}}else if("object"==typeof a)return e=e||0,2>e?encodeURIComponent(ta(a,b,c,d,e+1)):"...";return encodeURIComponent(String(a))},L=function(a,b,c,d){a.g.push(b);a.h[b]=ra(c,d)},va=function(a,b,c,d){b=b+"//"+c+d;var e=ua(a)-d.length;if(0>e)return"";a.g.sort(function(a,b){return a-b});d=null;c="";for(var f=0;f<a.g.length;f++)for(var h=a.g[f],g=a.h[h],k=0;k<g.length;k++){if(!e){d=null==d?h:d;break}var l=ta(g[k],a.i,",$");if(l){l=c+l;if(e>=l.length){e-=l.length;b+=l;c=a.i;break}else a.j&&(c=e,l[c-1]==a.i&&--c,b+=l.substr(0,c),c=a.i,e=0);d=null==d?h:d}}a="";null!=d&&(a=c+"trn="+d);return b+a},ua=function(a){var b=1,c;for(c in a.h)b=c.length>b?c.length:b;return 3997-b-a.i.length-1};var wa=function(a,b,c,d){if(Math.random()<(d||a.g))try{if(c instanceof K)var e=c;else e=new K,ha(c,function(a,b){var c=e,d=c.l++;a=ra(b,a);c.g.push(d);c.h[d]=a});var f=va(e,a.j,a.h,a.i+b+"&");f&&ka(u,f)}catch(h){}};var M=null;var xa=function(){var a=u.performance;return a&&a.now&&a.timing?Math.floor(a.now()+a.timing.navigationStart):v()},ya=function(){var a=void 0===a?u:a;return(a=a.performance)&&a.now?a.now():null};var za=function(a,b,c){this.label=a;this.type=b;this.value=c;this.duration=0;this.uniqueId=this.label+"_"+this.type+"_"+Math.random();this.slotId=void 0};var N=u.performance,Aa=!!(N&&N.mark&&N.measure&&N.clearMarks),O=function(a){var b=!1,c;return function(){b||(c=a(),b=!0);return c}}(function(){var a;if(a=Aa){var b;if(null===M){M="";try{a="";try{a=u.top.location.hash}catch(c){a=u.location.hash}a&&(M=(b=a.match(/\bdeid=([\d,]+)/))?b[1]:"")}catch(c){}}b=M;a=!!b.indexOf&&0<=b.indexOf("1337")}return a}),Ba=function(){var a=P;this.h=[];this.i=a||u;var b=null;a&&(a.google_js_reporting_queue=a.google_js_reporting_queue||[],this.h=a.google_js_reporting_queue,b=a.google_measure_js_timing);this.g=O()||(null!=b?b:1>Math.random())},Ca=function(a){a&&N&&O()&&(N.clearMarks("goog_"+a.uniqueId+"_start"),N.clearMarks("goog_"+a.uniqueId+"_end"))};Ba.prototype.start=function(a,b){if(!this.g)return null;var c=ya()||xa();a=new za(a,b,c);b="goog_"+a.uniqueId+"_start";N&&O()&&N.mark(b);return a};var R=function(){var a=Q;this.h=Da;this.j=this.i;this.g=void 0===a?null:a};R.prototype.pinger=function(){return this.h};var Ea=function(a,b,c,d,e){try{if(a.g&&a.g.g){var f=a.g.start(b.toString(),3);var h=c();var g=a.g;c=f;if(g.g&&"number"==typeof c.value){var k=ya()||xa();c.duration=k-c.value;var l="goog_"+c.uniqueId+"_end";N&&O()&&N.mark(l);g.g&&g.h.push(c)}}else h=c()}catch(m){g=!0;try{Ca(f),g=(e||a.j).call(a,b,new S(T(m),m.fileName,m.lineNumber),void 0,d)}catch(x){a.i(217,x)}if(!g)throw m;}return h},Ga=function(a,b,c,d,e){var f=Fa;return function(h){for(var g=[],k=0;k<arguments.length;++k)g[k]=arguments[k];return Ea(f,a,function(){return b.apply(c,g)},d,e)}};R.prototype.i=function(a,b,c,d,e){e=e||"jserror";try{var f=new K;f.j=!0;L(f,1,"context",a);b.error&&b.meta&&b.id||(b=new S(T(b),b.fileName,b.lineNumber));b.msg&&L(f,2,"msg",b.msg.substring(0,512));b.file&&L(f,3,"file",b.file);0<b.line&&L(f,4,"line",b.line);var h=b.meta||{};if(d)try{d(h)}catch(V){}b=[h];f.g.push(5);f.h[5]=b;d=u;b=[];h=null;do{var g=d;if(A(g)){var k=g.location.href;h=g.document&&g.document.referrer||null}else k=h,h=null;b.push(new qa(k||""));try{d=g.parent}catch(V){d=null}}while(d&&g!=d);k=0;for(var l=b.length-1;k<=l;++k)b[k].depth=l-k;g=u;if(g.location&&g.location.ancestorOrigins&&g.location.ancestorOrigins.length==b.length-1)for(l=1;l<b.length;++l){var m=b[l];m.url||(m.url=g.location.ancestorOrigins[l-1]||"",m.s=!0)}var x=new qa(u.location.href,!1);g=null;var W=b.length-1;for(m=W;0<=m;--m){var r=b[m];!g&&oa.test(r.url)&&(g=r);if(r.url&&!r.s){x=r;break}}r=null;var Ja=b.length&&b[W].url;0!=x.depth&&Ja&&(r=b[W]);var z=new pa(x,r);z.h&&L(f,6,"top",z.h.url||"");L(f,7,"url",z.g.url||"");wa(this.h,e,f,c)}catch(V){try{wa(this.h,e,{context:"ecmserr",rctx:a,msg:T(V),url:z&&z.g.url},c)}catch(Ka){}}return!0};var T=function(a){var b=a.toString();a.name&&-1==b.indexOf(a.name)&&(b+=": "+a.name);a.message&&-1==b.indexOf(a.message)&&(b+=": "+a.message);if(a.stack){a=a.stack;var c=b;try{-1==a.indexOf(c)&&(a=c+"\n"+a);for(var d;a!=d;)d=a,a=a.replace(/((https?:\/..*\/)[^\/:]*:\d+(?:.|\n)*)\2/,"$1");b=a.replace(/\n */g,"\n")}catch(e){b=c}}return b},S=function(a,b,c){J.call(this,Error(a),{message:a,file:void 0===b?"":b,line:void 0===c?-1:c})},U=S;U.prototype=aa(J.prototype);U.prototype.constructor=U;if(t)t(U,J);else for(var X in J)if("prototype"!=X)if(Object.defineProperties){var Ha=Object.getOwnPropertyDescriptor(J,X);Ha&&Object.defineProperty(U,X,Ha)}else U[X]=J[X];U.v=J.prototype;var Da,Fa;if(la&&!A(D)){var Y="."+w.domain;try{for(;2<Y.split(".").length&&!A(D);)w.domain=Y=Y.substr(Y.indexOf(".")+1),D=window.parent}catch(a){}A(D)||(D=window)}var P=D,Q=new Ba,Ia=function(){if(!P.google_measure_js_timing){var a=Q;a.g=!1;a.h!=a.i.google_js_reporting_queue&&(O()&&fa(a.h,Ca),a.h.length=0)}};Da=new function(){var a=void 0===a?da:a;this.j="http:"===a.location.protocol?"http:":"https:";this.h="pagead2.googlesyndication.com";this.i="/pagead/gen_204?id=";this.g=.01};Fa=new R;"complete"==P.document.readyState?Ia():Q.g&&B(P,"load",function(){Ia()});var Z=function(a,b,c,d,e){return Ga(a,b,c,d,e)};F=Z;G=ia;ca("vu",Z("vu",function(a){a=a.replace("&amp;","&");var b=/(google|doubleclick).*\/pagead\/adview/.test(a),c=I.h();if(b){b="&vis="+E(c.g);var d=a.indexOf("&adurl");a=-1==d?a+b:a.substring(0,d)+b+a.substring(d)}c.j?c.u(a):c.i.push([a])}));ca("vv",Z("vv",function(){G&&H(I.h())}));}).call(this);</script><script>vu("https://securepubads.g.doubleclick.net/pcs/view?xai\x3dAKAOjst2GAbQZn1tBBY-OOljD1Ch-6vpKA1l3eT5dtrUdfkJWgPVtJok34N0j6_flNG5l-NBJE2TM0ETUifh6Dg2iF3WzTurUV3xJm5m-ttof_VSOioFHacGEYd5klIqnuFPUnlfNnwmWYu70RFKvSA7Y17AfvDDX8EVYO-GUuNOCGBiGfaAkxeFfn-NOjpfm1dgmcducQm0eCy3suOdk_DsLiWHkXj6szr68qVCwCKnlednokobtsYAw1KsCcWF0eWgipl7HjbH9f3JSO-TqojE0En9gw\x26sig\x3dCg0ArKJSzCYRGslH7oJSEAE\x26urlfix\x3d1\x26adurl\x3d")</script><div>
+<script src="./How to Install Django on Ubuntu 16.04 LTS_files/gpt.js">
+    googletag.pubads().definePassback('/8095840/.2_7098.3_howtoforge.com_tier1', [728, 90]).display();
+</script><script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/ads(2)" id="sae-script-1"></script><div id="gpt_unit_/8095840/.2_7098.3_howtoforge.com_tier1_1_ad_container"><script>var viewReq = new Array();function vu(u) {var i=new Image();i.src=u.replace("&amp;","&");viewReq.push(i);}</script><script>vu("https://securepubads.g.doubleclick.net/pcs/view?xai\x3dAKAOjstsUe9i2KnwZq1MOZuSCSZWhWwky45Ny4Z6ZYPlt8C6WFZOqK_UGdTU-9aNQS7oqTpgD5AFY28zCHOzHMrdFcyqMY_1M-01Awsz3LynzzNsa8cqXtkpkrQjV36IOgxGuWUY-XaY0SuEIeTAfgsdSWmBIVRbzHt3W8ihBWo8-yTSEUjE7bxwYI5wqhlWRHcuylmBXEltOmfwVMfGcQ6k_6swdLWDZ7NxPb_rTWAtNCp4Tx_JjjDA9TWPBXflyo3KS0F_vScKgVNZo7q4F_rdZpw\x26sig\x3dCg0ArKJSzJArY2Gv_k7XEAE\x26urlfix\x3d1\x26adurl\x3d")</script><script src="./How to Install Django on Ubuntu 16.04 LTS_files/gpt.js">
+  googletag.pubads().definePassback('/8095840/.2_7098.3_howtoforge.com_tier2', [728, 90]).display();
+</script><script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/ads(3)" id="sae-script-2"></script><div id="gpt_unit_/8095840/.2_7098.3_howtoforge.com_tier2_2_ad_container"><script>var viewReq = new Array();function vu(u) {var i=new Image();i.src=u.replace("&amp;","&");viewReq.push(i);}</script><script>vu("https://securepubads.g.doubleclick.net/pcs/view?xai\x3dAKAOjst9NIkWfUR9YB2kQ-lpgYOqUui2NNrU85H9xxfv3YpYDyjGGduvmhcNHLJWzBUXY31Wx0CKyU_rCVB2XCOh9WoZ4_CNq7Ai14V9WtPgS_sLn6b-1e4FIuyDFqjVAXfDAo4JkSQ69DNiT5abXsmifygSv-heTMK7rI_V2RmPGhWE6OMxWYet7fom4ig0X_yAiqzvIJ_PIgTe3-bOOuJxpjfiOzOX1PiB3y5DMc9BZkMugvXDqkT8Zj8ZNFPSWf0Gte4nHEji5LAea9AQFMr9teA\x26sig\x3dCg0ArKJSzD8clLDUC4VJEAE\x26urlfix\x3d1\x26adurl\x3d")</script><!-- PubMatic ad tag (Javascript) : .2 7098.3 howtoforge.com ROW tier1 desktop 728x90 | https://www.howtoforge.com/ | 728 x 90 Leaderboard-728X90 -->
+<script type="text/javascript">
+		var pubId=38381;
+		var siteId=169023;
+		var kadId=874283;
+		var kadwidth=728;
+		var kadheight=90;
+		var kadtype=1;
+		var kadpageurl= "https%3A%2F%2Fhowtoforge.com%2F";
+</script>
+<script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/showad.js"></script><script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/UCookieSetPug"></script><script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/showad.js"></script><iframe frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" scrolling="no" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" src="./How to Install Django on Ubuntu 16.04 LTS_files/showad.html"></iframe><iframe frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" scrolling="no" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" src="./How to Install Django on Ubuntu 16.04 LTS_files/showad(1).html" onload="PubMatic.ifl(this,0)"></iframe><script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/AdServerServlet" onload="PubMatic.tags[0].jsl();"></script><span class="PubAdAI" id="A1BC8B24-33B5-4A06-AF72-F9EAF962F0A3"><!--JavaScript General Redirect Tag // Tag for network 9436: Marketplace: PubGalaxy // Website: howtoforge.com // Page: howtoforge.com // Placement: .2 23671.3 howtoforge.com ROW tier1 desktop 728x90 (4290346) // created at: Mar 25, 2018 6:13:54 PM-->
+<script language="javascript1.1" src="./How to Install Django on Ubuntu 16.04 LTS_files/ADTECH"></script><script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/show_ads.js"></script><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:728px;height:90px;" src="./How to Install Django on Ubuntu 16.04 LTS_files/saved_resource(3).html"></iframe></ins></ins>
+<img src="./How to Install Django on Ubuntu 16.04 LTS_files/post_adtech" width="1" height="1" style="display:none;"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/sync" width="1" height="1" style="display:none;"><iframe src="./How to Install Django on Ubuntu 16.04 LTS_files/usermatch.html" width="1" height="1" style="display: none"></iframe><img src="./How to Install Django on Ubuntu 16.04 LTS_files/generic" width="1" height="1" style="display:none;"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/saved_resource" width="1" height="1" style="display:none;"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/sync(1)" width="1" height="1" style="display:none;"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/getuid" width="1" height="1" style="display:none;"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/aol" width="1" height="1" style="display:none;">
+<!-- End of JavaScript Tag -->
+<iframe name="pbeacon" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no" width="0" height="0" style="position:absolute;top:-20000px;" src="./How to Install Django on Ubuntu 16.04 LTS_files/AdDisplayTrackerServlet.html"> </iframe><!-- PubMatic Ad Ends --> </span><script src="./How to Install Django on Ubuntu 16.04 LTS_files/osd_listener.js"></script><script type="text/javascript">osdlfm(-1,'','B9c24eFHZWpFTxoymA4OAk6gLAAAAABABOAHIAQnAAgLgAgDgBAGgBhbSCAUIgAEQAQ','',1325106299,true,'ud\x3d1\x26la\x3d0\x26alp\x3dxai\x26alh\x3d123428863\x26',3,'CAASEuRoN6_WvyCy7zj2kmygDDLKmg','https://pagead2.googlesyndication.com/pcs/activeview?xai\x3dAKAOjstFC6X0_eDeQ06jYlQjFJHnPJZg954zdfeybTZ2g-bTr4RO5QW-5tCZqQQaePdOQlQRyZbRlg8p0snfhC_7Ni8vRAgMoRfhDtE\x26sig\x3dCg0ArKJSzFW2zNtujorcEAE','');</script><script>if (window.top && window.top.postMessage) {window.top.postMessage('{"googMsgType":"adpnt"}','*');}</script>
+</div>
+<script src="./How to Install Django on Ubuntu 16.04 LTS_files/osd_listener.js"></script><script type="text/javascript">osdlfm(-1,'','BhlxUd1HZWva6F42VpgOgno7gAwAAAAAQATgByAEJwAIC4AIA4AQBoAYW0ggFCIABEAE','',1030248120,true,'ud\x3d1\x26la\x3d0\x26alp\x3dxai\x26alh\x3d3371300453\x26',3,'CAASEuRobCI895Y467SQFRhZSlDqcA','https://pagead2.googlesyndication.com/pcs/activeview?xai\x3dAKAOjstouGnOFDNL8039pv242juAxe2hw5wC4n96MNvIn5KinI_8wNB0RBtL3XrNkhVgXIsj1dbwoeCKeT31Gdw9RrQ5hqq3hg8o670\x26sig\x3dCg0ArKJSzAnutVthwVmBEAE','');</script><script>if (window.top && window.top.postMessage) {window.top.postMessage('{"googMsgType":"adpnt"}','*');}</script>
+</div>
+<script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/pubads_impl_rendering_195.js" id="gpt_rendering"></script>
+</div><div style="bottom:0;right:0;width:246px;height:90px;background:initial !important;position:absolute !important;max-width:100% !important;max-height:100% !important;pointer-events:none !important;image-rendering:pixelated !important;z-index:2147483647;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWBAMAAACrl3iAAAAABlBMVEUAAAD+AciWmZzWAAAAAnRSTlMAApidrBQAAAB/SURBVBjTbZEBEoQwCAOTH/D/195JQkkdcQZbu9AQge+gole5qz6tfnbHhwD33bm5anJS75LCRWNqKnr77tPfSibqpRu0Zk0Bwbob6q2FcbiAdOHSYmr0k0dz6A8lMSgu3bcSZ0mxjccFua0P4aBht196HMTtIDxq5b+M/v/8A0hKBeKuBz7LAAAAAElFTkSuQmCC&#39;) !important"></div>
+</div>
+</div>
+
+
+</center>
+</div>
+
+
+
+
+</div>
+</div>
+
+<aside>
+<div class="sidebar">
+<div class="section loginButton">
+<div class="secondaryContent">
+<label for="LoginControl" id="SignupButton"><a href="https://www.howtoforge.com/community/login/" class="inner">Sign up now!</a></label>
+</div>
+</div>
+<div class="widget WidgetFramework_WidgetRenderer_ShareThisPage" id="widget-2">
+
+<div class="widget WidgetFramework_WidgetRenderer_ShareThisPage" id="widget-5">
+<div class="section infoBlock sharePage">
+<div class="secondaryContent socialMediaIcon">
+<a href="https://twitter.com/howtoforgecom" target="_blank"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/twitter.png"></a>
+<a href="https://www.facebook.com/howtoforge" target="_blank"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/facebook.png"></a>
+<a href="https://plus.google.com/+howtoforge/posts" target="_blank"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/googleplus.png"></a>
+<a href="https://www.howtoforge.com/feed" target="_blank"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/rss.png"></a>
+</div>
+</div>
+</div>
+<div class="section widget-group-no-name widget-container">
+<div class="secondaryContent widget WidgetFramework_WidgetRenderer_Stats" id="widget-3">
+<p class="mnuinfo">Tutorial Info</p>
+<div class="pairsJustified">
+<dl class="discussionCount">
+<dt>Author:</dt>
+<dd>Muhammad Arul</dd>
+</dl>
+<dl class="discussionCount">
+<dt>Last updated:</dt>
+<dd>Mar 16, 2018</dd>
+</dl>
+<dl class="discussionCount">
+<dt>Tags:</dt>
+<dd><a href="https://www.howtoforge.com/tutorials/linux/" rel="tag">linux</a>, <a href="https://www.howtoforge.com/tutorials/server/" rel="tag">server</a>, <a href="https://www.howtoforge.com/tutorials/ubuntu/" rel="tag">ubuntu</a>, <a href="https://www.howtoforge.com/tutorials/web+server/" rel="tag">web server</a></dd>
+</dl>
+</div>
+</div>
+</div>
+<script src="./How to Install Django on Ubuntu 16.04 LTS_files/monetization.js" type="text/javascript"></script>
+<div class="native-sidebar"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD55QU', 'placement:howtoforge', {
+      target: '.native-sidebar',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+
+<div class="widget WidgetFramework_WidgetRenderer_ShareThisPage" id="widget-5">
+<div class="section infoBlock sharePage">
+<div class="secondaryContent">
+<p class="mnuinfo mnushare">Share This Page</p>
+<p style="text-align:center;">
+<a href="javascript:window.open(&#39;https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.howtoforge.com%2Ftutorial%2Fhow-to-install-django-on-ubuntu%2F&#39;, &#39;_blank&#39;, &#39;status=1,height=500,width=360,resizable=0&#39;);void(0);"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/btn-recommend.png" height="20"></a>
+<a href="javascript:window.open(&#39;https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.howtoforge.com%2Ftutorial%2Fhow-to-install-django-on-ubuntu%2F&amp;text=How+to+Install+Django+on+Ubuntu+16.04+LTS&amp;via=howtoforgecom&amp;related=howtoforgecom&#39;, &#39;_blank&#39;, &#39;status=1,height=500,width=360,resizable=0&#39;);void(0);"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/btn-tweet.png" height="20"></a>
+<a href="https://twitter.com/howtoforgecom/" target="_blank" rel="nofollow"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/btn-follow.png" height="20"></a>
+<a href="javascript:window.open(&#39;https://plus.google.com/share?url=https%3A%2F%2Fwww.howtoforge.com%2Ftutorial%2Fhow-to-install-django-on-ubuntu%2F&#39;, &#39;_blank&#39;, &#39;status=1,height=500,width=360,resizable=0&#39;);void(0);"><img src="./How to Install Django on Ubuntu 16.04 LTS_files/btn-gplus.png" height="20"></a>
+</p>
+<p style="color:#EE; font-weight:bold; text-align:center; margin-top:5px;">40.2k Followers</p>
+</div>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+    google_ad_client = "ca-pub-3043223216276099";
+    google_ad_slot = "6709042890";
+    google_ad_width = 300;
+    google_ad_height = 600;
+</script>
+
+<script type="text/javascript" src="./How to Install Django on Ubuntu 16.04 LTS_files/show_ads.js">
+</script><ins id="aswift_2_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:300px;height:600px;" src="./How to Install Django on Ubuntu 16.04 LTS_files/saved_resource(4).html"></iframe></ins></ins>
+
+
+<div class="section widget-group-no-name widget-container">
+<div class="secondaryContent widget WidgetFramework_WidgetRenderer_Stats" id="widget-3">
+<p class="mnuinfo">Popular Tutorials</p>
+<div class="pairsJustified">
+<ul>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-elastic-stack-on-centos-7/">How to Install Elastic Stack on CentOS 7</a></li>
+<li><hr></li>
+<li><a href="https://www.howtoforge.com/tutorial/perfect-server-debian-9-stretch-apache-bind-dovecot-ispconfig-3-1/">The Perfect Server - Debian 9 (Stretch) with Apache, BIND, Dovecot, PureFTPD and ISPConfig 3.1</a></li>
+<li><hr></li>
+<li><a href="https://www.howtoforge.com/tutorial/perfect-server-ubuntu-16.04-with-apache-php-myqsl-pureftpd-bind-postfix-doveot-and-ispconfig/">The Perfect Server - Ubuntu 16.04 (Xenial Xerus) with Apache, PHP, MySQL, PureFTPD, BIND, Postfix, Dovecot and ISPConfig 3.1</a></li>
+<li><hr></li>
+<li><a href="https://www.howtoforge.com/tutorial/linux-grep-command/">How to use grep to search for strings in files on the shell</a></li>
+<li><hr></li>
+<li><a href="https://www.howtoforge.com/tutorial/perfect-server-ubuntu-with-nginx-and-ispconfig-3/">The Perfect Server - Ubuntu 16.04 (Nginx, MySQL, PHP, Postfix, BIND, Dovecot, Pure-FTPD and ISPConfig 3.1)</a></li>
+<li><hr></li>
+<li><a href="https://www.howtoforge.com/tutorial/centos-zabbix-system-monitoring/">How to Install and Configure Zabbix on CentOS 7</a></li>
+<li><hr></li>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-use-ftp-on-the-linux-shell/">How to use the Linux ftp command to up- and download files on the shell</a></li>
+<li><hr></li>
+<li><a href="https://www.howtoforge.com/setting-changing-resetting-mysql-root-passwords">Setting, Changing And Resetting MySQL Root Passwords</a></li>
+<li><hr></li>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile/">How to create Docker Images with a Dockerfile</a></li>
+<li><hr></li>
+<li><a href="https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu">Linux Basics - Set A Static IP On Ubuntu</a></li>
+<li><hr></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div><iframe id="google_osd_static_frame_3676356574091" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./How to Install Django on Ubuntu 16.04 LTS_files/saved_resource(5).html"></iframe>
+<footer>
+<div class="footer">
+<div class="pageWidth">
+<div class="pageContent">
+<div class="skin_branding"><a href="http://www.xenfocus.com/" rel="nofollow">Xenforo skin</a><span> by <a href="http://www.xenfocus.com/" rel="nofollow">Xenfocus</a></span></div>
+<ul class="footerLinks">
+<li><a href="https://www.howtoforge.com/contribute/">Contribute</a></li>
+<li><a href="https://www.howtoforge.com/community/misc/contact">Contact</a></li>
+<li><a href="https://www.howtoforge.com/community/help/">Help</a></li>
+<li><a href="https://www.howtoforge.com/imprint/">Imprint</a></li>
+<li><a href="https://www.howtoforge.com/" class="homeLink">Tutorials</a></li>
+<li><a href="https://www.howtoforge.com/tutorial/how-to-install-django-on-ubuntu/#navigation" class="topLink">Top</a></li>
+<li><a href="https://www.howtoforge.com/feed" rel="alternate" class="globalFeed" target="_blank" title="RSS-Feed for Howtoforge">RSS-Feed</a></li>
+</ul>
+<span class="helper"></span>
+</div>
+</div>
+</div>
+<div class="footerLegal">
+<div class="pageWidth">
+<div class="pageContent">
+<ul id="legal">
+<li><a href="https://www.howtoforge.com/community/help/terms">Terms</a></li>
+</ul>
+<div id="copyright"><a href="https://www.howtoforge.com/" class="concealed">Howtoforge <span>© projektfarm GmbH.</span></a></div>
+<span class="helper"></span>
+</div>
+</div>
+</div>
+</footer>
+<div style="height:100px;"></div>
+<script>
+
+jQuery.extend(true, XenForo,
+{
+	visitor: { user_id: 0 },
+	serverTimeInfo:
+	{
+		now: 1409831907,
+		today: 1409781600,
+		todayDow: 4
+	},
+	_lightBoxUniversal: "0",
+	_enableOverlays: "1",
+	_animationSpeedMultiplier: "1",
+	_overlayConfig:
+	{
+		top: "10%",
+		speed: 200,
+		closeSpeed: 100,
+		mask:
+		{
+			color: "rgb(0, 0, 0)",
+			opacity: "0.6",
+			loadSpeed: 200,
+			closeSpeed: 100
+		}
+	},
+	_ignoredUsers: [],
+	_loadedScripts: {"node_list":true,"node_category":true,"node_forum":true,"sidebar_share_page":true,"wf_default":true,"bbm_buttons":true,"login_bar":true,"twitter":true},
+	_cookieConfig: { path: "/", domain: "", prefix: "xf_"},
+	_csrfToken: "",
+	_csrfRefreshUrl: "/community/login/csrf-token-refresh",
+	_jsVersion: "303ae0ca"
+});
+jQuery.extend(XenForo.phrases,
+{
+	cancel: "Cancel",
+
+	a_moment_ago:    "A moment ago",
+	one_minute_ago:  "1 minute ago",
+	x_minutes_ago:   "%minutes% minutes ago",
+	today_at_x:      "Today at %time%",
+	yesterday_at_x:  "Yesterday at %time%",
+	day_x_at_time_y: "%day% at %time%",
+
+	day0: "Sunday",
+	day1: "Monday",
+	day2: "Tuesday",
+	day3: "Wednesday",
+	day4: "Thursday",
+	day5: "Friday",
+	day6: "Saturday",
+
+	_months: "January,February,March,April,May,June,July,August,September,October,November,December",
+	_daysShort: "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+
+	following_error_occurred: "The following error occurred",
+	server_did_not_respond_in_time_try_again: "The server did not respond in time. Please try again.",
+	logging_in: "Logging in",
+	click_image_show_full_size_version: "Click this image to show the full-size version.",
+	show_hidden_content_by_x: "Show hidden content by {names}"
+});
+
+// Facebook Javascript SDK
+XenForo.Facebook.appId = "";
+XenForo.Facebook.forceInit = true;
+
+/*
+document.addEventListener('DOMContentLoaded', function(event) {
+  cookieChoices.showCookieConsentBar('Cookies erleichtern die Bereitstellung unserer Dienste. Mit der Nutzung unserer Dienste erklären Sie sich damit einverstanden, dass wir Cookies verwenden.',
+  'OK');
+});
+*/
+
+$(document).ready(function() {
+	$("a.fancybox").fancybox();
+});
+
+</script>
+
+<script>
+(function() {
+  if (typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('fancybar', 'CKYDL27E', 'placement:howtoforgecom');
+  }
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2155872-1', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+
+</script>
+
+<div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./How to Install Django on Ubuntu 16.04 LTS_files/FdM1l_dpErI.html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><iframe name="oauth2relay874030486" id="oauth2relay874030486" src="./How to Install Django on Ubuntu 16.04 LTS_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><div style="background-color: #fff; border: 1px solid #ccc; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); position: absolute; left: 0px; top: -10000px; transition: visibility 0s linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: #fff; opacity: 0.05;  filter: alpha(opacity=5)"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="./How to Install Django on Ubuntu 16.04 LTS_files/bframe.html" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" name="7y7ozgpq8way" style="width: 100%; height: 100%;"></iframe></div></div><iframe aria-hidden="true" id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" src="./How to Install Django on Ubuntu 16.04 LTS_files/iframe.html" style="position: absolute; width: 1px; height: 1px; left: -9999px; display: none;"></iframe></body></html>
